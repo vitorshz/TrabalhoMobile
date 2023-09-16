@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CadastroClienteActivity"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Nome"
+                android:textSize="25dp"/>
+
+            <EditText
+                android:id="@+id/edNomeCliente"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Insira o nome do cliente"
+                android:layout_marginBottom="10dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="CPF"
+                android:textSize="25dp"/>
+
+            <EditText
+                android:id="@+id/edCpfCliente"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Insira o CPF do cliente"
+                android:layout_marginBottom="10dp"/>
+            <Button
+                android:id="@+id/btSalvarCliente"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Salvar"
+                android:layout_gravity="center"/>
+        </LinearLayout>
+    </ScrollView>
+
+        
+</LinearLayout>
