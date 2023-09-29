@@ -13,6 +13,9 @@
         android:theme="@style/Theme.TrabalhoMobile"
         tools:targetApi="31">
         <activity
+            android:name=".CadastroPedidoActivity"
+            android:exported="false" />
+        <activity
             android:name=".CadastroItemVendaActivity"
             android:exported="false" />
         <activity
