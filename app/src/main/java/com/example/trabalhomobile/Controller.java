@@ -2,6 +2,7 @@ package com.example.trabalhomobile;
 
 import com.example.trabalhomobile.modelos.Cliente;
 import com.example.trabalhomobile.modelos.Item;
+import com.example.trabalhomobile.modelos.ItemVenda;
 import com.example.trabalhomobile.modelos.Pedido;
 
 import java.util.ArrayList;
@@ -11,6 +12,7 @@ public class Controller {
     private ArrayList<Cliente> listaClientes;
     private ArrayList<Item> listaItens;
     private ArrayList<Pedido> listaPedidos;
+    private ArrayList<ItemVenda> listaItensVenda;
 
     
     public static Controller getInstance(){
@@ -23,6 +25,7 @@ public class Controller {
     private Controller(){
         listaClientes = new ArrayList<>();
         listaItens = new ArrayList<>();
+        listaItensVenda = new ArrayList<>();
     }
     public void salvarCliente(Cliente cliente){
         listaClientes.add(cliente);
@@ -38,4 +41,12 @@ public class Controller {
     public ArrayList<Pedido> retornarPedidos(){
         return listaPedidos;
     }
+
+    public void salvarItensVenda(ItemVenda itemvenda){
+        listaItensVenda.add(itemvenda);
+    }
+    public ArrayList<ItemVenda> retornarItensVenda(){
+        return listaItensVenda;
+    }
+
 }

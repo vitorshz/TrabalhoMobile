@@ -50,6 +50,18 @@
                 android:layout_height="wrap_content"
                 android:hint="Informe o nome do Cliente"
                 android:layout_marginBottom="10dp"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/tvNomeCliente"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="20dp"
+                    android:layout_marginBottom="10dp"/>
+            </LinearLayout>
+
             <Button
                 android:id="@+id/btAddCliente"
                 android:layout_width="wrap_content"

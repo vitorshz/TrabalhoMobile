@@ -69,9 +69,6 @@ public class CadastroItemVendaActivity extends AppCompatActivity {
         Toast.makeText(this, "Item cadastrado com Sucesso!", Toast.LENGTH_LONG).show();
         this.finish();
 
-        //itens de exemplo
-        Item item1 = new Item(1,"Agua",5);
-        Item item2 = new Item(2, "Refrigerante", 7.5);
-        Item item3 = new Item(3, "Salgadinho", 12.99);
+
     }
 }

@@ -4,17 +4,19 @@ import java.util.ArrayList;
 
 public class Pedido {
     private int id;
+    private ArrayList<ItemVenda> listaItemVenda;
     private ArrayList<Item> listaItens;
-    private ArrayList<Cliente> listaClientes;
+    private Cliente cliente;
     private double valorTotal;
 
     public Pedido() {
     }
 
-    public Pedido(int id, ArrayList<Item> listaItens, ArrayList<Cliente> listaClientes, double valorTotal) {
+    public Pedido(int id, ArrayList<ItemVenda> listaItemVenda, ArrayList<Item> listaItens, Cliente cliente, double valorTotal) {
         this.id = id;
+        this.listaItemVenda = listaItemVenda;
         this.listaItens = listaItens;
-        this.listaClientes = listaClientes;
+        this.cliente = cliente;
         this.valorTotal = valorTotal;
     }
 
@@ -26,6 +28,14 @@ public class Pedido {
         this.id = id;
     }
 
+    public ArrayList<ItemVenda> getListaItemVenda() {
+        return listaItemVenda;
+    }
+
+    public void setListaItemVenda(ArrayList<ItemVenda> listaItemVenda) {
+        this.listaItemVenda = listaItemVenda;
+    }
+
     public ArrayList<Item> getListaItens() {
         return listaItens;
     }
@@ -34,12 +44,12 @@ public class Pedido {
         this.listaItens = listaItens;
     }
 
-    public ArrayList<Cliente> getListaClientes() {
-        return listaClientes;
+    public Cliente getCliente() {
+        return cliente;
     }
 
-    public void setListaClientes(ArrayList<Cliente> listaClientes) {
-        this.listaClientes = listaClientes;
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
     }
 
     public double getValorTotal() {

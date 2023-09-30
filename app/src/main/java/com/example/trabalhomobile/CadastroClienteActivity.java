@@ -53,8 +53,7 @@ public class CadastroClienteActivity extends AppCompatActivity {
         Toast.makeText(this, "Cliente cadastrado com Sucesso!", Toast.LENGTH_LONG).show();
         this.finish();
 
-        //cliente de exemplo
-        Cliente cliente1 = new Cliente("vito","12830912367");
+
     }
 
 }
