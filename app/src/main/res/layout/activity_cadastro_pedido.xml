@@ -4,138 +4,110 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    tools:context=".CadastroPedidoActivity"
     android:orientation="vertical"
-    tools:context=".CadastroPedidoActivity">
-
+    android:padding="10dp">
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
+        android:layout_height="match_parent">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:padding="10dp">
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Itens"
+                android:textSize="20dp"
+                android:layout_marginBottom="10dp"/>
+            <Spinner
+                android:id="@+id/spItens"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/tvListaItens"
+                android:layout_marginBottom="10dp"/>
+            <Button
+                android:id="@+id/btAddItens"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Adicionar itens"
+                android:layout_gravity="center"
+                android:layout_marginBottom="10dp"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="Informe o Cliente"
-                android:textSize="20dp" />
-
-            <EditText
-                android:id="@+id/edCliente"
+                android:text="Cliente"
+                android:textSize="20dp"
+                android:layout_marginBottom="10dp"/>
+            <AutoCompleteTextView
+                android:id="@+id/actvCliente"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:hint="Informe o nome do Cliente"
                 android:layout_marginBottom="10dp"/>
             <Button
                 android:id="@+id/btAddCliente"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Adicionar"
-                android:layout_gravity="center"/>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="Selecione os Itens do Pedido"
-                android:textSize="20dp" />
-
-            <Spinner
-                android:id="@+id/spItem"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp" />
-            <Button
-                android:id="@+id/btAddItem"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Adicionar"
-                android:layout_gravity="center"/>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:text="Itens Do pedido"
-                android:textSize="20dp" />
-
-            <TextView
-                android:id="@+id/tvlistaItens"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp" />
+                android:text="Adicionar Cliente"
+                android:layout_gravity="center"
+                android:layout_marginBottom="25dp"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:orientation="horizontal">
-
                 <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Valor Total do Pedido"
-                    android:textSize="20dp"
-                    android:layout_marginBottom="10dp"/>
-
-                <TextView
-                    android:id="@+id/tvValorTotal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    />
+                    android:text="Valor Total:"
+                    android:textSize="25dp" />
+                <TextView
+                    android:id="@+id/tvValorTotalPedido"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="25dp"/>
             </LinearLayout>
 
             <RadioGroup
-                android:id="@+id/rgFormaPagamento"
+                android:id="@+id/rgPagamento"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp">
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Informe a Forma de pagamento"
-                    android:textSize="20dp"
-                    android:layout_marginTop="10dp"/>
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
                 <RadioButton
-                    android:id="@+id/rbAvista"
+                    android:id="@+id/rbPgVista"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Á Vista"/>
+                    android:text="À Vista" />
+
                 <RadioButton
-                    android:id="@+id/rbPrazo"
+                    android:id="@+id/rbPgPrazo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Á prazo"/>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Selecione o número de parcelas"
-                    android:textSize="20dp"
-                    android:layout_marginBottom="10dp"
-                    android:visibility="gone"/>
-                <Spinner
-                    android:id="@+id/spQtdParcelas"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:visibility="gone"/>
-                <Button
-                    android:id="@+id/btPagar"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Pague agora"
-                    android:layout_gravity="center"
-                    />
-
-
-
+                    android:text="À Prazo" />
             </RadioGroup>
 
-        </LinearLayout>
+            <Spinner
+                android:id="@+id/spParcelas"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Número de Parcelas"
+                android:inputType="numberDecimal"
+                android:visibility="gone"/>
 
+            <Button
+                android:id="@+id/btConcluirPedido"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Concluir Pedido"/>
+
+        </LinearLayout>
     </ScrollView>
 </LinearLayout>

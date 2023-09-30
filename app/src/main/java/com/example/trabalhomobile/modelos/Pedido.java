@@ -1,28 +1,52 @@
 package com.example.trabalhomobile.modelos;
 
 import java.util.ArrayList;
-import java.util.Random;
 
 public class Pedido {
-
-    Random random = new Random();
-    private int codPedido = random.nextInt(1000);
+    private int id;
     private ArrayList<Item> listaItens;
+    private ArrayList<Cliente> listaClientes;
     private double valorTotal;
-    private FormaPagamento formaPagamento;
-    private int numeroParcelas;
-    private Cliente cliente;
 
     public Pedido() {
     }
 
-    public Pedido(int codPedido, ArrayList<Item> listaItens, double valorTotal,
-                  FormaPagamento formaPagamento, int numeroParcelas, Cliente cliente) {
-        this.codPedido = codPedido;
+    public Pedido(int id, ArrayList<Item> listaItens, ArrayList<Cliente> listaClientes, double valorTotal) {
+        this.id = id;
         this.listaItens = listaItens;
+        this.listaClientes = listaClientes;
         this.valorTotal = valorTotal;
-        this.formaPagamento = formaPagamento;
-        this.numeroParcelas = numeroParcelas;
-        this.cliente = cliente;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public ArrayList<Item> getListaItens() {
+        return listaItens;
+    }
+
+    public void setListaItens(ArrayList<Item> listaItens) {
+        this.listaItens = listaItens;
+    }
+
+    public ArrayList<Cliente> getListaClientes() {
+        return listaClientes;
+    }
+
+    public void setListaClientes(ArrayList<Cliente> listaClientes) {
+        this.listaClientes = listaClientes;
+    }
+
+    public double getValorTotal() {
+        return valorTotal;
+    }
+
+    public void setValorTotal(double valorTotal) {
+        this.valorTotal = valorTotal;
     }
 }

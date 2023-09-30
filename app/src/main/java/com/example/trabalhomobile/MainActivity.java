@@ -10,6 +10,7 @@ import android.widget.Button;
 public class MainActivity extends AppCompatActivity {
     private Button btCadastroCliente;
     private Button btCadastroItem;
+    private Button btCadastroPedido;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -17,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
 
         btCadastroCliente = findViewById(R.id.btCadastroCliente);
         btCadastroItem = findViewById(R.id.btCadastroItem);
+        btCadastroPedido = findViewById(R.id.btCadastroPedido);
         btCadastroCliente.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -28,6 +30,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 abrirActivity(CadastroItemVendaActivity.class);
+            }
+        });
+        btCadastroPedido.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                abrirActivity(CadastroPedidoActivity.class);
             }
         });
     }
