@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
@@ -29,10 +30,10 @@ import java.util.Random;
 public class CadastroPedidoActivity extends AppCompatActivity {
     private Spinner spItens;
     private TextView tvListaItens;
-    private Button btAddItens;
+    private ImageButton btAddItens = findViewById(R.id.btAddItens);
     private AutoCompleteTextView actvCliente;
     private TextView tvNomeCliente;
-    private Button btAddCliente;
+    private ImageButton btAddCliente;
     private TextView tvValorTotalPedido;
     private RadioGroup rgPagamento;
     private RadioButton rbPgVista;
@@ -50,10 +51,10 @@ public class CadastroPedidoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastro_pedido);
+        setTitle("Cadastro de Pedido");
 
         spItens = findViewById(R.id.spItens);
         tvListaItens = findViewById(R.id.tvListaItens);
-        btAddItens = findViewById(R.id.btAddItens);
         actvCliente = findViewById(R.id.actvCliente);
         btAddCliente = findViewById(R.id.btAddCliente);
         tvValorTotalPedido = findViewById(R.id.tvValorTotalPedido);

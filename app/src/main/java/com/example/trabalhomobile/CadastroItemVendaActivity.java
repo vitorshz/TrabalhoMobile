@@ -19,7 +19,7 @@ public class CadastroItemVendaActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastro_item_venda);
-
+        setTitle("Cadastro de Item");
         edCodItem = findViewById(R.id.edCodItem);
         edDescItem = findViewById(R.id.edDescItem);
         edValorUnitItem = findViewById(R.id.edValorUnitItem);

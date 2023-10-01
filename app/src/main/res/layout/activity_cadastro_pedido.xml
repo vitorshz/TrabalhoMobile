@@ -4,86 +4,99 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CadastroPedidoActivity"
     android:orientation="vertical"
-    android:padding="10dp">
+    android:padding="10dp"
+    tools:context=".CadastroPedidoActivity">
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
                 android:text="Itens"
-                android:textSize="20dp"
-                android:layout_marginBottom="10dp"/>
+                android:textSize="20dp" />
+
             <Spinner
                 android:id="@+id/spItens"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"/>
+                android:layout_marginBottom="10dp" />
+
             <TextView
+                android:id="@+id/tvListaItens"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/tvListaItens"
-                android:layout_marginBottom="10dp"/>
-            <Button
+                android:layout_marginBottom="10dp" />
+
+            <ImageButton
                 android:id="@+id/btAddItens"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Adicionar itens"
-                android:layout_gravity="center"
-                android:layout_marginBottom="10dp"/>
+                android:layout_gravity="right"
+                android:background="@drawable/circle_button"
+                android:src="@drawable/ic_save" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
                 android:text="Cliente"
-                android:textSize="20dp"
-                android:layout_marginBottom="10dp"/>
+                android:textSize="20dp" />
+
             <AutoCompleteTextView
                 android:id="@+id/actvCliente"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Informe o nome do Cliente"
-                android:layout_marginBottom="10dp"/>
+                android:layout_marginBottom="10dp"
+                android:hint="Informe o nome do Cliente" />
+
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
+
                 <TextView
                     android:id="@+id/tvNomeCliente"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="20dp"
-                    android:layout_marginBottom="10dp"/>
+                    android:layout_marginBottom="10dp"
+                    android:textSize="20dp" />
             </LinearLayout>
 
-            <Button
+            <ImageButton
                 android:id="@+id/btAddCliente"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Adicionar Cliente"
-                android:layout_gravity="center"
-                android:layout_marginBottom="25dp"/>
+                android:background="@drawable/circle_button"
+                android:src="@drawable/ic_save"
+                android:layout_gravity="right"
+                />
+
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Valor Total:"
                     android:textSize="25dp" />
+
                 <TextView
                     android:id="@+id/tvValorTotalPedido"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="25dp"/>
+                    android:textSize="25dp" />
             </LinearLayout>
 
             <RadioGroup
@@ -112,13 +125,14 @@
                 android:layout_height="wrap_content"
                 android:hint="Número de Parcelas"
                 android:inputType="numberDecimal"
-                android:visibility="gone"/>
+                android:visibility="gone" />
 
             <Button
                 android:id="@+id/btConcluirPedido"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Concluir Pedido"/>
+                android:layout_gravity="center"
+                android:text="Concluir Pedido" />
 
         </LinearLayout>
     </ScrollView>
