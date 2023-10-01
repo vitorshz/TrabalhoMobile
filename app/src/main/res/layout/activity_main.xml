@@ -16,33 +16,41 @@
         android:gravity="center"
         android:layout_marginBottom="10dp"
         />
+
     <Button
         android:id="@+id/btCadastroCliente"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Cadastrar Cliente"
         android:layout_gravity="center"
-        android:layout_marginBottom="10dp"/>
+        android:layout_marginBottom="10dp"
+        android:text="Cadastrar Cliente"
+        app:icon="@drawable/ic_personadd" />
+
     <Button
         android:id="@+id/btCadastroItem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Cadastrar Item"
         android:layout_gravity="center"
-        android:layout_marginBottom="10dp"/>
+        android:layout_marginBottom="10dp"
+        android:text="Cadastrar Item"
+        app:icon="@drawable/ic_save" />
+
     <Button
         android:id="@+id/btCadastroPedido"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Cadastrar Pedido"
         android:layout_gravity="center"
-        android:layout_marginBottom="10dp"/>
+        android:layout_marginBottom="10dp"
+        android:text="Cadastrar Pedido"
+        app:icon="@drawable/ic_personadd" />
+
     <Button
         android:id="@+id/btPesquisarPedido"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Pesquisar Pedido"
         android:layout_gravity="center"
-        android:layout_marginBottom="10dp"/>
+        android:layout_marginBottom="10dp"
+        android:text="Pesquisar Pedido"
+        app:icon="@drawable/ic_search" />
 
 </LinearLayout>

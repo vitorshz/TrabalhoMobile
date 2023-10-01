@@ -7,16 +7,18 @@ public class Pedido {
     private ArrayList<ItemVenda> listaItemVenda;
     private ArrayList<Item> listaItens;
     private Cliente cliente;
+    private ItemVenda itemVenda;
     private double valorTotal;
 
     public Pedido() {
     }
 
-    public Pedido(int id, ArrayList<ItemVenda> listaItemVenda, ArrayList<Item> listaItens, Cliente cliente, double valorTotal) {
+    public Pedido(int id,Cliente cliente, ItemVenda itemVenda, double valorTotal) {
         this.id = id;
         this.listaItemVenda = listaItemVenda;
         this.listaItens = listaItens;
         this.cliente = cliente;
+        this.itemVenda = itemVenda;
         this.valorTotal = valorTotal;
     }
 
@@ -50,6 +52,14 @@ public class Pedido {
 
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
+    }
+
+    public ItemVenda getItemVenda() {
+        return itemVenda;
+    }
+
+    public void setItemVenda(ItemVenda itemVenda) {
+        this.itemVenda = itemVenda;
     }
 
     public double getValorTotal() {

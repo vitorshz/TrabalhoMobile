@@ -17,12 +17,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.trabalhomobile.modelos.Cliente;
+import com.example.trabalhomobile.modelos.GerarId;
+import com.example.trabalhomobile.modelos.GerenciadorPedidos;
 import com.example.trabalhomobile.modelos.Item;
 import com.example.trabalhomobile.modelos.ItemVenda;
 import com.example.trabalhomobile.modelos.Parcela;
 import com.example.trabalhomobile.modelos.Pedido;
 
-import java.lang.reflect.Array;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -30,7 +32,7 @@ import java.util.Random;
 public class CadastroPedidoActivity extends AppCompatActivity {
     private Spinner spItens;
     private TextView tvListaItens;
-    private ImageButton btAddItens = findViewById(R.id.btAddItens);
+    private ImageButton btAddItens;
     private AutoCompleteTextView actvCliente;
     private TextView tvNomeCliente;
     private ImageButton btAddCliente;
@@ -45,7 +47,8 @@ public class CadastroPedidoActivity extends AppCompatActivity {
     private ArrayList<ItemVenda> listaItenVenda;
     private int posicaoSelecionada = 0;
     private int posCliente = 0;
-    private int posParcela = 0;
+    private TextView tvListaPedidos;
+    private Cliente clienteSelecionado;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,11 +67,12 @@ public class CadastroPedidoActivity extends AppCompatActivity {
         spParcelas = findViewById(R.id.spParcelas);
         btConcluirPedido = findViewById(R.id.btConcluirPedido);
         tvNomeCliente = findViewById(R.id.tvNomeCliente);
+        btAddItens = findViewById(R.id.btAddItens);
+        tvListaPedidos = findViewById(R.id.tvListaPedidos);
 
         carregarClientes();
         carregarItens();
         carregarItensVenda();
-
 
         btAddItens.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -119,6 +123,7 @@ public class CadastroPedidoActivity extends AppCompatActivity {
                     spParcelas.setVisibility(View.VISIBLE);
                     calcularParcelas();
                     calcularTotalPedido();
+
                 }
             }
         });
@@ -129,15 +134,16 @@ public class CadastroPedidoActivity extends AppCompatActivity {
             }
         });
 
+
     }
 
     private void adicionarCliente() {
-        Cliente cliente = listaClientes.get(posCliente);
-        String texto = "Nome: " + cliente.getNome() + "\n"
-                + "CPF: " + cliente.getCpf() + "\n"
+        clienteSelecionado = listaClientes.get(posCliente);
+        String texto = "Nome: " + clienteSelecionado.getNome() + "\n"
+                + "CPF: " + clienteSelecionado.getCpf() + "\n"
                 + "-----------------------------------------\n";
         tvNomeCliente.setText(texto);
-        Controller.getInstance().salvarCliente(cliente);
+        Controller.getInstance().salvarCliente(clienteSelecionado);
 
     }
 
@@ -157,7 +163,7 @@ public class CadastroPedidoActivity extends AppCompatActivity {
         String texto = "";
         for (ItemVenda ItVd : lista) {
             Item exItem = ItVd.getItem();
-            texto += ItVd.getItem() + "\n" + "Item: " + exItem.getDescricao() + "\n" + "R$: "
+            texto += "\n" + "Item: " + exItem.getDescricao() + "\n" + "R$: "
                     + ItVd.getSubtotal() + "\n---------------------------------------------\n";
         }
         tvListaItens.setText(texto);
@@ -183,7 +189,6 @@ public class CadastroPedidoActivity extends AppCompatActivity {
             vetCliente[i] = cliente.getNome();
         }
         ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, vetCliente);
-
         actvCliente.setAdapter(adapter);
     }
 
@@ -235,23 +240,42 @@ public class CadastroPedidoActivity extends AppCompatActivity {
     }
 
     private void salvarPedido() {
+        try {
+            GerarId gerar = new GerarId();
+            int idgerado = gerar.gerarProximoId();
 
-        Pedido pedido = new Pedido();
-        //randomizador para ids
-        Random random = new Random();
-        int numeroAleatorio = random.nextInt(100);
+            double valorTotal = calcularTotalPedido();
 
-        pedido.setId(numeroAleatorio);
+            if (clienteSelecionado == null) {
+                Toast.makeText(this, "Selecione um cliente.", Toast.LENGTH_SHORT).show();
+                return; // Sai do método se o cliente não estiver selecionado.
+            }
 
-        Cliente cliente = listaClientes.get(posCliente);
-        pedido.setCliente(cliente);
-        pedido.setListaItemVenda(listaItenVenda);
-        pedido.setValorTotal(Double.parseDouble(tvValorTotalPedido.getText().toString()));
+            // Verificar se há itens no pedido.
+            if (listaItenVenda.isEmpty()) {
+                Toast.makeText(this, "Adicione pelo menos um item ao pedido.", Toast.LENGTH_SHORT).show();
+                return; // Sai do método se não houver itens no pedido.
+            }
 
-        Controller.getInstance().salvarPedidos(pedido);
-        Toast.makeText(this, "Pedido salvo com sucesso!! id:"+pedido.getId(), Toast.LENGTH_LONG).show();
+            Pedido pedido = new Pedido();
+            pedido.setId(idgerado);
+            pedido.setCliente(clienteSelecionado);
+            pedido.setListaItemVenda(listaItenVenda);
+            pedido.setValorTotal(valorTotal);
 
+            Controller.getInstance().salvarPedidos(pedido);
 
+            Toast.makeText(CadastroPedidoActivity.this, "Pedido salvo com sucesso!! ID: "
+                    +pedido.getId(), Toast.LENGTH_LONG).show();
+            this.finish();
+
+        } catch (Exception e) {
+
+            e.printStackTrace();
+            Toast.makeText(this, "Erro ao salvar o pedido.", Toast.LENGTH_SHORT).show();
+
+        }
     }
+
 
 }

@@ -19,19 +19,29 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Informe aqui"/>
+
     <Button
         android:id="@+id/btAddPedido"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Pesquisar Pedido"
         android:layout_gravity="center"
-        android:layout_marginTop="10dp"/>
+        android:layout_marginTop="10dp"
+        android:text="Pesquisar Pedido"
+        app:icon="@drawable/ic_serach" />
 
     <TextView
         android:id="@+id/tvListaPedido"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="15sp" />
-
-
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Pedidos Recentes:"
+        android:textSize="15sp" />
+    <TextView
+        android:id="@+id/tvListaPedidoRecentes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="15sp" />
 </LinearLayout>
