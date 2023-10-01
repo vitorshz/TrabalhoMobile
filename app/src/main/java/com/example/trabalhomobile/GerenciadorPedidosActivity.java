@@ -22,7 +22,7 @@ public class GerenciadorPedidosActivity extends AppCompatActivity {
     private EditText edIdPedido;
     private Button btAddPedido;
     private TextView tvListaPedido;
-    private TextView tvListaPedidoRecentes;
+
     private ArrayList<Pedido> listaPedidos;
     private ArrayList<Cliente> listaClientes;
     private ArrayList<Item> listaItens;
@@ -37,13 +37,13 @@ public class GerenciadorPedidosActivity extends AppCompatActivity {
         edIdPedido = findViewById(R.id.edIdPedido);
         btAddPedido = findViewById(R.id.btAddPedido);
         tvListaPedido = findViewById(R.id.tvListaPedido);
-        tvListaPedidoRecentes = findViewById(R.id.tvListaPedidoRecentes);
+
 
         carregarClientes();
         carregarItens();
         carregarItensVenda();
         carregarPedidos();
-        carregarPedidosRecentes();
+
         btAddPedido.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -130,29 +130,6 @@ public class GerenciadorPedidosActivity extends AppCompatActivity {
             vetPed[i + 1] = " ID: " + pedido.getId() + "\n Itens do Pedido " + pedido.getListaItemVenda()
                     + "\n Cliente:" + pedido.getCliente() + "\n Valor Total:" + pedido.getValorTotal();
         }
-    }
-
-    private void carregarPedidosRecentes() {
-        listaPedidos = Controller.getInstance().retornarPedidos();
-        ArrayList<GerenciadorPedidos> lista = Controller.getInstance().retornarPedidoPesquisado();
-        String texto = "";
-
-        for (GerenciadorPedidos pesq : lista) {
-            Pedido pedido = pesq.getPedido();
-
-            texto += "ID: " + pedido.getId() + "\n";
-
-            texto += "Itens do Pedido:\n";
-            for (ItemVenda item : pedido.getListaItemVenda()) {
-                texto += " - " + item.getItem() + ": R$ " + item.getSubtotal() + "\n";
-            }
-
-            texto += "Cliente: " + pedido.getCliente().getNome() + "\n";
-
-            texto += "Valor Total: R$ " + pedido.getValorTotal() + "\n\n";
-        }
-
-        tvListaPedidoRecentes.setText(texto);
     }
 
 }
