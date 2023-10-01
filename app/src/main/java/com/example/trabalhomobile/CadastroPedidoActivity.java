@@ -47,7 +47,6 @@ public class CadastroPedidoActivity extends AppCompatActivity {
     private ArrayList<ItemVenda> listaItenVenda;
     private int posicaoSelecionada = 0;
     private int posCliente = 0;
-    private TextView tvListaPedidos;
     private Cliente clienteSelecionado;
 
     @Override
@@ -68,7 +67,7 @@ public class CadastroPedidoActivity extends AppCompatActivity {
         btConcluirPedido = findViewById(R.id.btConcluirPedido);
         tvNomeCliente = findViewById(R.id.tvNomeCliente);
         btAddItens = findViewById(R.id.btAddItens);
-        tvListaPedidos = findViewById(R.id.tvListaPedidos);
+
 
         carregarClientes();
         carregarItens();
@@ -234,7 +233,7 @@ public class CadastroPedidoActivity extends AppCompatActivity {
         } else {
             total *= 1.05; // Aplicar acréscimo de 5% para pagamento a prazo.
         }
-        tvValorTotalPedido.setText(String.format("Total do Pedido: R$ %.2f", total));
+        tvValorTotalPedido.setText(String.format("R$ %.2f", total));
 
         return total;
     }
