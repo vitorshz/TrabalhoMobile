@@ -37,5 +37,12 @@
         android:text="Cadastrar Pedido"
         android:layout_gravity="center"
         android:layout_marginBottom="10dp"/>
+    <Button
+        android:id="@+id/btPesquisarPedido"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pesquisar Pedido"
+        android:layout_gravity="center"
+        android:layout_marginBottom="10dp"/>
 
 </LinearLayout>

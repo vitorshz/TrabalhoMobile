@@ -121,7 +121,12 @@ public class CadastroPedidoActivity extends AppCompatActivity {
                 }
             }
         });
-
+        btConcluirPedido.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                salvarPedido();
+            }
+        });
 
     }
 
@@ -243,7 +248,8 @@ public class CadastroPedidoActivity extends AppCompatActivity {
         pedido.setValorTotal(Double.parseDouble(tvValorTotalPedido.getText().toString()));
 
         Controller.getInstance().salvarPedidos(pedido);
-        Toast.makeText(this, "Pedido salvo com sucesso!!", Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "Pedido salvo com sucesso!! id:"+pedido.getId(), Toast.LENGTH_LONG).show();
+
 
     }
 
